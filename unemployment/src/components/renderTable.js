@@ -1,5 +1,4 @@
 
-function renderTable() {
     const renderTable = (table, index) => (
         <div key={index}>
         <h2>{table.fileName}</h2>
@@ -23,6 +22,5 @@ function renderTable() {
         </table>
         </div>
     );
-    }
 
-export default renderTable
+export default renderTable;
