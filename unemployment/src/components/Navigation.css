@@ -1,0 +1,27 @@
+nav {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    text-decoration: none;
+    color: #495057;
+    float: left;
+    border-right: 1px solid black;
+    text-align: center;
+    display: block;
+    padding: 14px 16px;
+}
+
+.link:hover:not(.active) {
+    background-color: grey;
+    color: #007bff; /* Add a hover effect */
+  }
+
+.link:active {
+    background-color: #04AA6D;
+}
