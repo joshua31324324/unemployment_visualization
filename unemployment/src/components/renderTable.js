@@ -11,7 +11,6 @@ const renderTable = (table, index) => {
   
     return (
       <div key={index}>
-        <h2>{table.fileName || `Table ${index + 1}`}</h2>
         <table>
           <thead>
             <tr>
