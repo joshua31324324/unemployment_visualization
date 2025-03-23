@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -15,8 +14,8 @@ function App() {
   return (
     <Router>
     <div className="App">
+    <div className="spinBackground">
     <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo"/>
     <Navigation />
     </header>
     <Routes>
@@ -30,6 +29,7 @@ function App() {
       <footer>
           <p>Use navigation to view more data.</p>
         </footer>
+        </div>
     </div>
     </Router>
   );

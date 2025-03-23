@@ -14,20 +14,6 @@
   filter: blur(8px);
 }
 
-.App-content {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 2.5s linear;
-  }
-}
-
 .App-header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   min-height: 100vh;
@@ -42,11 +28,36 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes spinBackground {
   from {
+    background-position: center;
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    background-position: center;
+    transform: rotate(360deg); /* Full rotation */
   }
+}
+
+.spinning-background {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background-image: url("logo.svg"); 
+  background-size: cover; /* Adjust background scaling */
+  background-repeat: no-repeat; /* No repeat for a single image */
+  display: flex; /* Optional: for centering content */
+  align-items: center; /* Optional */
+  justify-content: center; /* Optional */
+  transform-origin: center center; /* Rotate around center */
+  animation: spinBackground 2s linear infinite; /* Spinning loop */
+  z-index: -1; /* Behind other content */
+  position: fixed; /* Fixed position */
+  top: 0; /* Top edge */
+  left: 0; /* Left edge */
+  right: 0; /* Right edge */
+  bottom: 0; /* Bottom edge */
+  overflow: hidden; /* Hide overflowing content */
+  pointer-events: none; /* Ignore pointer events */
+  -webkit-filter: blur(8px); /* Optional: blur effect */
+  filter: blur(8px); /* Optional: blur effect */
 }

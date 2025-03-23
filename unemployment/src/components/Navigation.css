@@ -5,13 +5,15 @@ nav {
     text-align: center;
     margin: 0;
     padding: 0;
+    float:left;
+    width: 100%;
+    display:inline;
 }
 
 .link {
     text-decoration: none;
     color: #495057;
     float: left;
-    border-right: 1px solid black;
     text-align: center;
     display: block;
     padding: 14px 16px;

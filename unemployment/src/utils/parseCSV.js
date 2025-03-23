@@ -1,30 +1,43 @@
 import Papa from "papaparse";
 
-export const fetchCSVFiles = async (csvFiles) => {
-  const tablesData = [];
-
-  for (const file of csvFiles) {
-    try {
-      const response = await fetch(file); // Fetch each CSV file
-      if (!response.ok) {
-        throw new Error(`Failed to fetch ${file}`);
-      }
-      const csvText = await response.text(); // Read file as text
-
-      const parsedData = Papa.parse(csvText, {
-        header: true, // Treat first row as headers
-        skipEmptyLines: true,
-      });
-
-      tablesData.push({
-        fileName: file.split("/").pop(), // Extract file name
-        headers: Object.keys(parsedData.data[0] || {}), // Get headers
-        rows: parsedData.data, // Rows of data
-      });
-    } catch (error) {
-      console.error(`Error fetching or parsing ${file}:`, error);
+// Utility to fetch and parse a single CSV file
+export const parseCSV = async (filePath) => {
+  try {
+    // Fetch the CSV file
+    const response = await fetch(filePath);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch file: ${filePath}`);
     }
-  }
 
-  return tablesData; // Return the table data
+    // Read the file content as text
+    const csvText = await response.text();
+
+    // Parse the CSV content
+    const parsedData = Papa.parse(csvText, {
+      header: true, // Treat the first row as headers
+      skipEmptyLines: true,
+    });
+
+    // Extract headers and rows
+    const headers = parsedData.meta.fields || []; // meta.fields contains headers
+    const rows = parsedData.data.map((row) => {
+      const normalizedRow = {};
+      headers.forEach((header) => {
+        normalizedRow[header] = row[header] || "N/A"; // Handle missing fields
+      });
+      return normalizedRow;
+    });
+
+    // Return the table structure
+    return {
+      headers,
+      rows,
+    };
+  } catch (error) {
+    console.error(`Error parsing CSV file: ${filePath}`, error);
+    return {
+      headers: [],
+      rows: [],
+    }; // Return empty data in case of an error
+  }
 };
