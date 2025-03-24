@@ -1,3 +1,6 @@
+import './table.css';
+
+
 const renderTable = (table, index) => {
     // Validate the table object
     if (!table || !Array.isArray(table.headers) || !Array.isArray(table.rows)) {
