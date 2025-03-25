@@ -21,13 +21,13 @@ const CSVTable2 = () => {
   return (
     <div>
       <h2>CSV Table 2</h2>
-      {isLoading ? <p>Loading...</p> : renderTable(tableData, 1, 10)}
       <Link to="/csv1">
               <button>Previous Table</button>
             </Link>
       <Link to="/csv3">
         <button>Next Table</button>
       </Link>
+      {isLoading ? <p>Loading...</p> : renderTable(tableData, 1, 10)}
     </div>
   );
 };

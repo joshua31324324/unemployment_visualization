@@ -9,8 +9,7 @@ nav {
     width: 100%;
     display:inline;
 }
-
-.link {
+nav .link {
     text-decoration: none;
     color: #495057;
     float: left;
@@ -19,11 +18,10 @@ nav {
     padding: 14px 16px;
 }
 
-.link:hover:not(.active) {
-    background-color: grey;
+nav .link:hover:not(.active) {
     color: #007bff; /* Add a hover effect */
   }
 
-.link:active {
+nav .link:active {
     background-color: #04AA6D;
 }

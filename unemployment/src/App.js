@@ -27,7 +27,7 @@ function App() {
     <Route path="/csv5" element={<CSVTable5/>} />
       </Routes>
       <footer>
-          <p>Use navigation to view more data.</p>
+          <p>Use the navigation bar at the top of the screen to view slideshow.</p>
         </footer>
         </div>
     </div>
