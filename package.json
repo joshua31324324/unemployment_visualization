@@ -1,6 +1,6 @@
 {
+  "type": "module",
   "dependencies": {
-    "papaparse": "^5.5.2",
-    "type": "module"
+    "papaparse": "^5.5.2"
   }
 }
